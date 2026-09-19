@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Système de radiographie</title>
+<style>
+*{
+    box-sizing:border-box
+}
+body{
+    margin:0;font-family:Arial,sans-serif;background:#f3f5f7;color:#27313a;
+    line-height:1.6
+}
+header{
+    background:linear-gradient(135deg,#b94f57,#e58b8f);
+    color:white;text-align:center;padding:45px 20px
+}
+header h1{
+    margin:0;
+    font-size:clamp(1.8rem,5vw,3rem)
+}
+header p{
+    margin:10px 0 0
+}
+main{
+    width:min(1000px,92%);
+    margin:35px auto
+}
+.card{
+    background:white;
+    margin-bottom:28px;
+    padding:28px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08)
+}
+h2{
+    color:#bd555d;
+    margin-top:0;
+    border-left:5px solid #bd555d;
+    padding-left:12px
+}
+h3{
+    color:#596b75;
+    margin-top:25px
+}
+ul{
+    padding-left:25px
+}
+li{
+    margin-bottom:10px
+}
+.highlight{
+    background:#f9e8e9;
+    padding:18px;
+    border-radius:10px;
+    border-left:4px solid #bd555d
+}
+footer{
+    text-align:center;
+    background:#818385;
+    color:rgb(0, 0, 0);
+    padding:22px;
+    margin-top:35px
+}
+img {
+    justify-content: center;
+    max-width: 300px;
+}
+@media(max-width:600px){
+    .card{
+        padding:20px
+        }
+    header{
+        padding:32px 15px
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Système de radiographie</h1>
+        <img src="image/radiographie.jpg" alt="systeme radiographie">
+    </header>
+    <main>
+        <section class="card">
+            <h2>Présentation</h2>
+            <p>La radiographie est un examen d’imagerie médicale rapide qui utilise des rayons X pour voir l’intérieur du corps. Les tissus denses comme les os bloquent les rayons et apparaissent blancs, tandis que l’air ou les tissus moins résistants laissent passer le faisceau et apparaissent en gris ou en noir.</p>
+            <div class="highlight"><strong>Principe général :</strong> les rayons X traversent le corps et produisent une image permettant au professionnel de santé d’observer certaines structures internes.</div>
+        </section>
+        <section class="card">
+            <h2>Les composants principaux</h2>
+            <ul>
+                <li><strong>Le tube à rayons X :</strong> la source qui produit le faisceau de rayonnements électromagnétiques.</li>
+                <li><strong>Le collimateur :</strong> le dispositif qui ajuste la taille et la forme du faisceau lumineux.</li>
+                <li><strong>La table d’examen :</strong> le support où le patient s’allonge ou s’appuie.</li>
+                <li><strong>Le détecteur :</strong> la plaque numérique ou le film qui capture les rayons traversant le corps.</li>
+                <li><strong>Le pupitre de commande :</strong> la console externe permettant au manipulateur de régler l’intensité.</li>
+                <li><strong>Le générateur :</strong> le bloc électrique qui fournit la haute tension nécessaire au tube.</li>
+            </ul>
+        </section>
+        <section class="card">
+            <h2>Le tube à rayons X</h2>
+            <p>Le tube à rayons X est l’élément qui produit les rayons X utilisés pendant l’examen radiographique. Il reçoit une haute tension fournie par le générateur afin de produire le faisceau de rayonnement.</p>
+            <h3>Rôle du tube</h3>
+            <p>Son rôle principal est de générer les rayons X qui traversent la partie du corps examinée. Les rayons sont ensuite captés par un détecteur afin de former une image médicale.</p>
+        </section>
+        <section class="card">
+            <h2>Résumé</h2>
+            <p>Le système de radiographie est un dispositif d’imagerie médicale utilisant les rayons X. Il comprend notamment un tube à rayons X, un collimateur, une table d’examen, un détecteur, un pupitre de commande et un générateur.</p>
+        </section>
+    </main>
+    <footer>
+        <p><a href="index.html">Retour à l’accueil</a></p>
+        <p><a href="tools.html">Retournez au section outils</a></p>
+    </footer>
+</body>
+</html>

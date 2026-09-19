@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les Dispositifs Médicaux</title>
+    <link rel="shortcut icon" href="image/logo.jpg" type="image/jpg">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --background: #f8f9fa;
+            --text: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            color: var(--secondary);
+            margin-top: 25px;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+        }
+
+        .question p {
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f1f3f5;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background: #e9ecef;
+        }
+
+        .option-label input {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .score-box {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .percentage {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .correct {
+            background: #d4edda !important;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background: #f8d7da !important;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .feedback {
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html">Acceuil</a>
+<div class="container">
+    <h1>🩺 Quiz : Dispositifs Médicaux</h1>
+    <form id="quizForm">
+        <!-- Section I -->
+        <div class="section-title">I. Le stéthoscope</div>
+        <div class="question" data-q="q1">
+            <p>1. En quelle année et par quel médecin le stéthoscope a-t-il été inventé ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q1" value="A"> 1816 par René Laennec</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> 1895 par Wilhelm Röntgen</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> 1901 par Louis Pasteur</label>
+            </div>
+            <div class="feedback" data-f="q1">Inventé en 1816 par le médecin français René Laennec.</div>
+        </div>
+
+        <div class="question" data-q="q2">
+            <p>2. Quel est le rôle de la membrane (pavillon) du stéthoscope ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q2" value="A"> Capter les sons de haute fréquence (cœur, poumons)</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> Bloquer les bruits extérieurs uniquement</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> Transmettre directement l'électricité</label>
+            </div>
+            <div class="feedback" data-f="q2">La membrane capte les vibrations des sons de haute fréquence.</div>
+        </div>
+
+        <div class="question" data-q="q3">
+            <p>3. Quel est le principe de fonctionnement du stéthoscope ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q3" value="A"> Amplification électronique du signal</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> Transmission acoustique mécanique des vibrations de l'air</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> Utilisation d'ondes électromagnétiques</label>
+            </div>
+            <div class="feedback" data-f="q3">Le stéthoscope fonctionne par transmission acoustique mécanique via une colonne d'air.</div>
+        </div>
+
+        <!-- Section II -->
+        <div class="section-title">II. Le tensiomètre</div>
+        <div class="question" data-q="q4">
+            <p>4. Quel est le rôle principal du tensiomètre ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q4" value="A"> Mesurer le rythme respiratoire</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> Mesurer la pression artérielle</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> Analyser la saturation en oxygène</label>
+            </div>
+            <div class="feedback" data-f="q4">Le tensiomètre sert à mesurer la pression exercée par le sang sur les artères.</div>
+        </div>
+
+        <div class="question" data-q="q5">
+            <p>5. Quelle est la principale différence entre un tensiomètre manuel et un électronique ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q5" value="A"> Le manuel nécessite un stéthoscope pour écouter les bruits de Korotkoff</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> L'électronique utilise des rayons X pour voir l'artère</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> Le manuel est entièrement automatisé par capteurs oscillométriques</label>
+            </div>
+            <div class="feedback" data-f="q5">Le tensiomètre manuel nécessite l'écoute des bruits artériels au stéthoscope, alors que l'électronique utilise la méthode oscillométrique.</div>
+        </div>
+
+        <div class="question" data-q="q6">
+            <p>6. Que signifie l'indication SYS affichée sur un tensiomètre ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q6" value="A"> Pression diastolique (quand le cœur se relâche)</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> Pression systolique (quand le cœur se contracte)</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> Pouls ou fréquence cardiaque</label>
+            </div>
+            <div class="feedback" data-f="q6">SYS désigne la pression systolique (maximale), DIA la diastolique (minimale) et PUL le pouls.</div>
+        </div>
+
+        <!-- Section III -->
+        <div class="section-title">III. L'échographe portable</div>
+        <div class="question" data-q="q7">
+            <p>7. Sur quel phénomène physique repose le fonctionnement de l'échographe portable ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q7" value="A"> La réflexion des ondes ultrasonores (écho)</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> L'absorption des rayons gamma</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> La résonance magnétique nucléaire</label>
+            </div>
+            <div class="feedback" data-f="q7">L'échographie repose sur l'émission et la réflexion d'ultrasons par les différents tissus du corps.</div>
+        </div>
+
+        <div class="question" data-q="q8">
+            <p>8. Quelle est l'étape finale de la formation de l'image sur un échographe ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q8" value="A"> L'émission continue d'une lumière visible</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> Le traitement informatique des échos reçus pour reconstituer une image</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> Le développement sur un film argentique</label>
+            </div>
+            <div class="feedback" data-f="q8">Les trois étapes sont : émission des ultrasons, réception des échos renvoyés, puis traitement informatique pour former l'image.</div>
+        </div>
+
+        <!-- Section IV -->
+        <div class="section-title">IV. L'oxymètre de pouls</div>
+        <div class="question" data-q="q9">
+            <p>9. Quelles sont les deux principales informations mesurées par un oxymètre de pouls ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q9" value="A"> La saturation en oxygène (SpO2) et la fréquence cardiaque</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> La pression artérielle et la température corporelle</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> Le taux de globules rouges et de globules blancs</label>
+            </div>
+            <div class="feedback" data-f="q9">Il mesure le pourcentage de saturation en oxygène de l'hémoglobine et le pouls.</div>
+        </div>
+
+        <div class="question" data-q="q10">
+            <p>10. Comment l'oxymètre utilise-t-il la lumière pour mesurer l'oxygène ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q10" value="A"> Par l'absorption différentielle des lumières rouge et infrarouge selon l'oxygénation de l'hémoglobine</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> En brûlant les tissus superficiels pour analyser le gaz</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> En mesurant la réfraction de la lumière ultraviolette</label>
+            </div>
+            <div class="feedback" data-f="q10">L'hémoglobine oxygénée et l'hémoglobine réduite n'absorbent pas la lumière rouge et infrarouge de la même façon.</div>
+        </div>
+
+        <!-- Section V -->
+        <div class="section-title">V. L'automate d'hématologie</div>
+        <div class="question" data-q="q11">
+            <p>11. Qu'est-ce qu'un automate d'hématologie et quel examen réalise-t-il ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q11" value="A"> Un appareil qui compte les cellules du sang et réalise la Numération Formule Sanguine (NFS)</label>
+                <label class="option-label"><input type="radio" name="q11" value="B"> Une machine pour filtrer les impuretés du foie</label>
+                <label class="option-label"><input type="radio" name="q11" value="C"> Un scanner pour cartographier les vaisseaux du cerveau</label>
+            </div>
+            <div class="feedback" data-f="q11">Il réalise l'hémogramme ou NFS pour compter et analyser les cellules sanguines.</div>
+        </div>
+
+        <div class="question" data-q="q12">
+            <p>12. Parmi ces éléments du sang, lequel est analysé par l'automate pour diagnostiquer une anémie ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q12" value="A"> Le taux de globules rouges et d'hémoglobine</label>
+                <label class="option-label"><input type="radio" name="q12" value="B"> Le taux de glucose</label>
+                <label class="option-label"><input type="radio" name="q12" value="C"> Le taux de cholestérol</label>
+            </div>
+            <div class="feedback" data-f="q12">L'automate analyse les globules rouges/hémoglobine (anémie), les globules blancs (infections) et les plaquettes (coagulation).</div>
+        </div>
+
+        <!-- Section VI -->
+        <div class="section-title">VI. Le système de radiographie</div>
+        <div class="question" data-q="q13">
+            <p>13. Quel type de rayonnement la radiographie utilise-t-elle ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q13" value="A"> Des ondes radio</label>
+                <label class="option-label"><input type="radio" name="q13" value="B"> Des rayons X</label>
+                <label class="option-label"><input type="radio" name="q13" value="C"> Des ultrasons</label>
+            </div>
+            <div class="feedback" data-f="q13">La radiographie utilise un rayonnement électromagnétique ionisant appelé rayons X.</div>
+        </div>
+
+        <div class="question" data-q="q14">
+            <p>14. Quel composant du système de radiographie produit directement les rayons X ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q14" value="A"> Le tube à rayons X (ou tube de Coolidge)</label>
+                <label class="option-label"><input type="radio" name="q14" value="B"> Le collimateur</label>
+                <label class="option-label"><input type="radio" name="q14" value="C"> Le récepteur numérique</label>
+            </div>
+            <div class="feedback" data-f="q14">C'est le tube à rayons X qui produit le faisceau grâce à une projection d'électrons sur une cible métallique.</div>
+        </div>
+
+        <div class="question" data-q="q15">
+            <p>15. Comment les rayons X permettent-ils de produire l'image d'un os ?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q15" value="A"> Les os, très denses, absorbent les rayons X et apparaissent en blanc (zones claires)</label>
+                <label class="option-label"><input type="radio" name="q15" value="B"> Les os réfléchissent la lumière comme un miroir</label>
+                <label class="option-label"><input type="radio" name="q15" value="C"> Les os traversés deviennent radioactifs et brillent</label>
+            </div>
+            <div class="feedback" data-f="q15">L'image repose sur l'atténuation différentielle : les tissus denses (os) absorbent les rayons X et projettent une ombre blanche sur le détecteur.</div>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Valider mes réponses</button>
+    </form>
+
+    <div id="result">
+        <div class="score-box">Votre score : <span id="scoreText">0 / 15</span></div>
+        <div class="percentage" id="percentageText">0%</div>
+    </div>
+</div>
+
+<script>
+    const answers = {
+        q1: 'A', q2: 'A', q3: 'B', q4: 'B', q5: 'A',
+        q6: 'B', q7: 'A', q8: 'B', q9: 'A', q10: 'A',
+        q11: 'A', q12: 'A', q13: 'B', q14: 'A', q15: 'A'
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const total = Object.keys(answers).length;
+        const form = document.getElementById('quizForm');
+        
+        Object.keys(answers).forEach(q => {
+            const selected = form.querySelector(`input[name="${q}"]:checked`);
+            const questionDiv = form.querySelector(`div[data-q="${q}"]`);
+            const feedbackDiv = form.querySelector(`div[data-f="${q}"]`);
+            
+            // Highlight layout setup
+            feedbackDiv.style.display = 'block';
+            
+            if (selected) {
+                if (selected.value === answers[q]) {
+                    score++;
+                    questionDiv.className = 'question correct';
+                } else {
+                    questionDiv.className = 'question incorrect';
+                }
+            } else {
+                questionDiv.className = 'question incorrect';
+            }
+        });
+
+        const percent = Math.round((score / total) * 100);
+        const resultDiv = document.getElementById('result');
+        
+        document.getElementById('scoreText').innerText = `${score} / ${total}`;
+        document.getElementById('percentageText').innerText = `${percent}%`;
+        
+        resultDiv.style.display = 'block';
+        if (percent >= 50) {
+            resultDiv.style.backgroundColor = '#d4edda';
+            resultDiv.style.color = '#155724';
+        } else {
+            resultDiv.style.backgroundColor = '#f8d7da';
+            resultDiv.style.color = '#721c24';
+        }
+        
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+<a href="index.html">Acceuil</a>
+</body>
+</html>
