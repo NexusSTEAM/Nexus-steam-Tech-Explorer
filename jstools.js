@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Création dynamique de la structure de la fenêtre modale dans le HTML
     const modal = document.createElement("div");
     modal.className = "custom-modal";
-    modal.innerHTML = 
+    modal.innerHTML = `
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h3 id="modal-title">Titre de l'outil</h3>
             <p id="modal-text">Description détaillée...</p>
-        </div>
+        </div>`
     ;
     document.body.appendChild(modal);
 
